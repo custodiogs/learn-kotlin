@@ -21,7 +21,9 @@
 				"vscjava.vscode-gradle",
 				"MarkNefedov.vscode-java-kotlin-mn-fork",
 				"fwcd.kotlin",
-				"GitHub.copilot"
+				"GitHub.copilot",
+				"vmware.vscode-spring-boot",
+				"vmware.vscode-boot-dev-pack"
 			]
 		}
 	}
