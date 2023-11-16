@@ -1,1 +1,13 @@
 
+{
+  "build": {
+    "dockerfile": "Dockerfile.github"
+  },
+  "customizations": {
+    "codespaces": {
+      "openFiles": [
+        "README.md"
+      ]
+    }
+  }
+}
