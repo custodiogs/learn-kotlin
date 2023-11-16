@@ -1,5 +1,8 @@
-# Usar uma imagem base com Java JDK
+# Utiliza a imagem oficial do OpenJDK, versão 11
 FROM openjdk:11-jdk
+
+# Instala o wget e o unzip, que podem ser necessários para a instalação do Gradle
+RUN apt-get update && apt-get install -y wget unzip
 
 # Instalar Gradle
 ENV GRADLE_VERSION 7.2
@@ -15,7 +18,11 @@ COPY . /app
 WORKDIR /app
 
 # Compilar o projeto
-RUN gradle build
+#RUN gradle build
 
 # Executar a aplicação
-CMD ["gradle", "run"]
+#CMD ["gradle", "run"]
+
+# Mantém o container rodando
+#CMD ["tail", "-f", "/dev/null"]
+
