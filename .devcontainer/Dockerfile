@@ -1,17 +1,21 @@
-FROM debian
+# Usar uma imagem base com Java JDK
+FROM openjdk:11-jdk
 
-RUN sudo apt update
+# Instalar Gradle
+ENV GRADLE_VERSION 7.2
+RUN wget https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip -P /tmp
+RUN unzip -d /opt/gradle /tmp/gradle-${GRADLE_VERSION}-bin.zip
+ENV GRADLE_HOME /opt/gradle/gradle-${GRADLE_VERSION}
+ENV PATH ${GRADLE_HOME}/bin:${PATH}
 
-# install node.js
-RUN curl -sL https://deb.nodesource.com/setup_16.x | sudo bash -
-RUN sudo apt -y install nodejs
+# Copiar os arquivos do projeto
+COPY . /app
 
-# install Docker CLI
-RUN sudo apt -y install docker.io
+# Definir o diretório de trabalho
+WORKDIR /app
 
-# install LocalStack CLI, awslocal, tflocal
-RUN pip install localstack awscli-local[ver1] terraform-local
+# Compilar o projeto
+RUN gradle build
 
-# install CDK utils
-RUN sudo chmod 777 /usr/local/lib /usr/local/bin
-RUN npm install -g aws-cdk-local aws-cdk
+# Executar a aplicação
+CMD ["gradle", "run"]
