@@ -14,7 +14,7 @@ dependencies {
     implementation 'com.google.guava:guava:28.0-jre'
 }
 
-mainClassName = 'learn-kotlin.Main'
+mainClassName = 'Main'
 
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
