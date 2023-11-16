@@ -18,7 +18,9 @@
 			"settings": {},
 			"extensions": [
 				"vscjava.vscode-java-pack",
-				"vscjava.vscode-gradle"
+				"vscjava.vscode-gradle",
+				"MarkNefedov.vscode-java-kotlin-mn-fork",
+				"fwcd.kotlin"
 			]
 		}
 	}
